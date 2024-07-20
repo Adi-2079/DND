@@ -59,3 +59,69 @@ def register():
 
     print("Registration successful!")
     return True
+
+
+def main():
+    while True:
+        print("Welcome to the login system!")
+        print("Choose an option:")
+        print("1. Login")
+        print("2. Register")
+        print("3. Quit")
+
+        choice = input("Enter your choice (1, 2, or 3): ")
+
+        if choice == "1":
+            if login():
+                # Perform logged-in operations
+                print("Logged in. Access granted.")
+                break  # Exit the loop after successful login
+        elif choice == "2":
+            if register():
+                # Perform post-registration operations
+                print("Registration complete. You can now login.")
+        elif choice == "3":
+            break  # Exit the loop if the user chooses to quit
+        else:
+            print("Invalid choice. Please try again.")
+
+
+# Call the main function to start the login system
+main()
+def deal_or_no_deal_briefcases():
+   global briefcases
+   global remaining_briefcases
+   briefcases = {}
+   amount = [0.1, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000]
+   for i in range (1,27):
+       briefcases[str(i)] = amount.pop(amount.index(random.choice(amount)))
+       remaining_briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+   return briefcases, remaining_briefcases
+  
+def list_to_string(lst):
+   return ' '.join(map(str, lst))
+
+def deal_or_no_deal():
+     pass
+
+
+
+
+
+def player_briefcase(remaining_briefcases):
+   global chosen_briefcase
+   print("You must pick a briefcase from 1-26 and this briefcases will be kept safe throughout the game. Remember the number of your briefcase as you will need it later. ")
+   chosen_briefcase = int(input("Chosen briefcase: "))
+   while chosen_briefcase not in range(1, 27):
+       print("Sorry. This number is not valid. Please pick again")
+       chosen_briefcase = int(input("Chosen briefcase: "))
+   remaining_briefcases.remove(chosen_briefcase)
+   print("You chose briefcase " + str(chosen_briefcase))
+   return chosen_briefcase, remaining_briefcases
+
+
+
+
+
+def get_random_offer():
+   return round(random.uniform(10, 120000), 2)
