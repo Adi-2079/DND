@@ -549,3 +549,66 @@ def deal_or_no_deal(): #round one
            print(" Your original briefcase has been added to the list. You must pick between your original briefcase and the other briefcase left in the list.")
            print(green(briefcases_left, ("bold")))
            print("Type the number of the original briefcase to choose the original briefcase, or the number in the list to choose the remaining briefcase.")
+
+           briefcase_won = int(input("Briefcase won:\n "))
+           if briefcase_won == chosen_briefcase:
+               remaining_briefcases.remove(briefcase_won)
+               print("You have won...")
+               time.sleep(1.5)
+               print("...")
+               time.sleep(1.5)
+               print("...")
+               time.sleep(1.5)
+               print("...")
+               time.sleep(1.5)
+               briefcase_content = briefcases[str(briefcase_won)]
+               print("You just won...... $ ", briefcase_content)
+               time.sleep(10)
+               os.system("clear")
+           elif briefcase_won in remaining_briefcases:
+               remaining_briefcases.remove(briefcase_won)
+
+
+               print("You have won...")
+               time.sleep(1.5)
+               print("...")
+               time.sleep(1.5)
+               print("...")
+               time.sleep(1.5)
+               print("...")
+               time.sleep(1.5)
+               briefcase_content = briefcases[str(briefcase_won)]
+               print("You just won...... $ ", briefcase_content)
+               time.sleep(10)
+               os.system("clear")
+           else:
+                  print("Sorry you have chosen the wrong briefcase please pick again.")
+                  briefcase_won = int(input("Briefcase won:" ))
+          
+
+def instructions(briefcases):
+    print("This is the game deal or no deal. Every one of the 26 briefcases has a random value from 1 cent to 1 million dollars! To begin, you will pick one briefcase which will be kept safe throughout the game.")
+    print("There will be multiple rounds of this game. After every round, the bank will offer you a deal")
+    print("If you accept that deal, you win the money. If not, you keep playing and eventually either accept an offer or win the money in either the first briefcase you chose or the last briefcase left.")
+    print("Throughout the game, if you feel you have eliminated too many briefcases with high values, just accept the offer and walk away with bundles of cash!")
+    print("Let's play!")
+    print("Do you want to play multiplayer M or single player S?")
+    choice = input("Chosen mode: ")
+    if choice == "M":
+        # Pass an empty list for chosen_cases since it is not used in multiplayer mode
+        multi.board(briefcases, [])
+        # Pass the prize_amounts list as an argument to the offer() function
+        multi.offer(prize_amounts)
+        multi.play_game()
+    else:
+        deal_or_no_deal()
+
+    time.sleep(15)
+    os.system("clear")
+
+briefcases = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+prize_amounts = [0.01, 1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000]  # Define the prize_amounts list here
+instructions(briefcases)
+
+
+instructions(briefcases)
