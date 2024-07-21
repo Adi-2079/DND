@@ -592,7 +592,7 @@ def instructions(briefcases):
     print("If you accept that deal, you win the money. If not, you keep playing and eventually either accept an offer or win the money in either the first briefcase you chose or the last briefcase left.")
     print("Throughout the game, if you feel you have eliminated too many briefcases with high values, just accept the offer and walk away with bundles of cash!")
     print("Let's play!")
-    print("Do you want to play multiplayer M or single player S?")
+    print("Do you want to play single player S?")
     choice = input("Chosen mode: ")
     if choice == "M":
         # Pass an empty list for chosen_cases since it is not used in multiplayer mode
